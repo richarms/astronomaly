@@ -13,6 +13,12 @@ import {TimeSeriesPlot} from './PlotLightCurve.js';
 import {ObjectDisplayer} from './ObjectDisplayer.js';
 import {PlotContainer} from './PlotContainer.js'
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   } from 'recharts';
@@ -281,8 +287,8 @@ export class AnomalyTab extends React.Component {
                               
 
                               <Grid item xs={12} align="center">
-                                  <Grid container alignItems="center">
-                                      <Grid item xs={2}>
+                                  {/* <Grid container alignItems="center"> */}
+                                      {/* <Grid item xs={2}>
                                           <Button variant="contained" color="primary" onClick={this.handleScoreButtonClick} id="0"> 0 </Button> 
                                       </Grid> 
                                       <Grid item xs={2}>
@@ -299,8 +305,19 @@ export class AnomalyTab extends React.Component {
                                       </Grid> 
                                       <Grid item xs={2}>
                                           <Button variant="contained" color="primary"onClick={this.handleScoreButtonClick} id="5"> 5 </Button> 
-                                      </Grid> 
-                                  </Grid>
+                                      </Grid>  */}
+                                      
+                                      <FormControl component="fieldset" fullWidth={true}  >
+                                      <FormLabel component="legend">Anomaly score</FormLabel>
+                                      <RadioGroup aria-label="position" name="position"  onChange={this.handleScoreButtonClick} row>
+                                        <FormControlLabel value="0" control={<Radio color="primary" />} label="0" />
+                                        <FormControlLabel value="1" control={<Radio color="primary" />} label="1" />
+                                        <FormControlLabel value="2" control={<Radio color="primary" />} label="2" />
+                                        <FormControlLabel value="3" control={<Radio color="primary" />} label="3" />
+                                        <FormControlLabel value="4" control={<Radio color="primary" />} label="4" />
+                                        <FormControlLabel value="5" control={<Radio color="primary" />} label="5" />
+                                      </RadioGroup>
+                                    </FormControl>
                               </Grid>
 
                               <Grid item xs={12} align="center">
